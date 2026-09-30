@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check-up Intelligence</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside>
+    <div class="logo">✚ Check-up Intelligence</div>
+    <div class="tag">Умные чекапы. Здоровое будущее.</div>
+    <nav>
+      <a>Главная</a>
+      <a class="on">Чекап конструктор</a>
+      <a>Мои чекапы</a>
+      <a>Результаты</a>
+      <a>Профиль</a>
+      <a>Настройки</a>
+    </nav>
+  </aside>
 
+  <main>
+    <section class="hero">
+      <h1>Check-up Intelligence</h1>
+      <p>Персонализированные медицинские чекапы на основе ваших ответов.</p>
+      <div class="chips"><span>Анализ рисков</span><span>Индивидуальные рекомендации</span><span>Быстро и удобно</span></div>
+    </section>
+
+    <div class="grid">
+      <div>
+        <section class="card">
+          <h2>Конструктор чекапа</h2>
+          <p class="sub">Создайте медицинский чекап под ваши цели и особенности.</p>
+          <div class="steps">
+            <span id="s1" class="on"><b>1</b>Выбор области</span>
+            <span id="s2"><b>2</b>Дополнительные параметры</span>
+            <span id="s3"><b>3</b>Готовый чекап</span>
+          </div>
+
+          <div id="p1" class="split">
+            <div id="areaList"></div>
+            <div class="detail">
+              <h3 id="dTitle"></h3>
+              <p id="dDesc"></p>
+              <b>Что включает:</b>
+              <ul id="dList" class="ok"></ul>
+              <button class="btn" onclick="go(2)">Продолжить</button>
+            </div>
+          </div>
+
+          <div id="p2" hidden>
+            <div class="form">
+              <label>Возраст <input id="age" type="number" min="1" max="120" value="30"></label>
+              <label>Сон (часов в сутки) <input id="sleep" type="number" min="0" max="24" value="7"></label>
+              <label>Курите ли вы?
+                <select id="smoker"><option value="no">Нет</option><option value="yes">Да</option></select></label>
+              <label>Занимаетесь ли спортом?
+                <select id="activity"><option value="yes">Да</option><option value="no">Нет</option></select></label>
+              <label>Хронические болезни в семье?
+                <select id="family"><option value="no">Нет</option><option value="yes">Да</option></select></label>
+            </div>
+            <button class="btn ghost" onclick="go(1)">Назад</button>
+            <button class="btn" onclick="build()">Составить чекап</button>
+          </div>
+
+          <div id="p3" hidden>
+            <div class="detail">
+              <h3 id="rTitle"></h3>
+              <b>Анализы и обследования:</b>
+              <ul id="rTests" class="ok"></ul>
+              <b>Врачи:</b>
+              <ul id="rDoctors" class="ok"></ul>
+              <div id="rWhy"></div>
+              <p id="rNote" class="note"></p>
+              <button class="btn ghost" onclick="go(1)">Начать заново</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Популярные чекапы</h2>
+          <div id="popular" class="pops"></div>
+        </section>
+      </div>
+
+      <div>
+        <section class="card side">
+          <h3>Ваш чекап</h3>
+          <b id="sName"></b>
+          <div class="pill">Индивидуальный чекап</div>
+          <div class="row"><span>Срок выполнения</span><b id="sDays"></b></div>
+          <div class="row"><span>Стоимость</span><b id="sPrice"></b></div>
+        </section>
+        <section class="card dark">
+          <h3>Ваше здоровье — в ваших руках</h3>
+          <p>Создайте свой идеальный чекап уже сегодня.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</html>
